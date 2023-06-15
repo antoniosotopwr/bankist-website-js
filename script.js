@@ -121,3 +121,23 @@ nav.addEventListener('mouseout', function (e) {
   handleHover(e, 1);
 });
 */
+
+//--Sticky navigation (old way with window-- not the optimal)
+/* 
+1) get the position when we want the nav becomes sticky
+2) use window.addEventListener('scroll' , function(){}) event
+3) inside the event listener add the condition (if windowCurrentY > positionWhenBecomesSticky)
+-- add sticky class to the nav, else remove
+*/
+
+const initialCoords = section1.getBoundingClientRect();
+console.log(initialCoords);
+
+window.addEventListener('scroll', function (e) {
+  console.log(window.scrollY);
+  if (this.window.scrollY > initialCoords.top) {
+    nav.classList.add('sticky');
+  } else {
+    nav.classList.remove('sticky');
+  }
+});
